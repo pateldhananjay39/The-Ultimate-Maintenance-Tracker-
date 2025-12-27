@@ -1,11 +1,7 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
+const ctrl = require("../controllers/maintenance.controller");
 
-const controller = require("../controllers/maintenance.controller");
-
-router.post("/", controller.createRequest);
-router.patch("/:id/status", controller.updateStatus);
-router.get("/", controller.getAllRequests);
-router.get("/risk/:equipmentId", controller.getEquipmentRiskScore);
+router.post("/", ctrl.createRequest);
+router.get("/", ctrl.getRequests);
 
 module.exports = router;
